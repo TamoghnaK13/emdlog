@@ -2,8 +2,34 @@
 <html>
     <head>
       
-      <meta name="google-signin-client_id" content="20575446019-4f7ofau8ir9jecfv8nsq44ueapil3coq.apps.googleusercontent.com">
+<meta name="google-signin-client_id" content="20575446019-4f7ofau8ir9jecfv8nsq44ueapil3coq.apps.googleusercontent.com">
      <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+ <script>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ // document.write("Welcome," + profile.getName());
+    document.getElementById('hello').textContent = ("Welcome, " + profile.getName());
+}
+</script>
+  
+  <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+  <p id="hello"></p>
+
+        
+        
         <script async src="https://arc.io/widget.min.js#npvbzSfu"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -208,33 +234,7 @@ body {
   <div align="center">
      <img src="https://image.flaticon.com/icons/png/512/1265/1265093.png" alt="LightningWebLogo" width="60" height="60" href="#home"></img>
 
-      <meta name="google-signin-client_id" content="20575446019-4f7ofau8ir9jecfv8nsq44ueapil3coq.apps.googleusercontent.com">
-     <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <div class="g-signin2" data-onsuccess="onSignIn"></div>
- <script>
-    function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
- // document.write("Welcome," + profile.getName());
-    document.getElementById('hello').textContent = ("Welcome, " + profile.getName());
-}
-</script>
-  
-  <a href="#" onclick="signOut();">Sign out</a>
-<script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
-</script>
-  <p id="hello"></p>
-</div>
-
+    
     </div>
     
   <a href="#home">Home</a>
