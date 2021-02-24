@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+      
         <script async src="https://arc.io/widget.min.js#npvbzSfu"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
           <meta charset="utf-8" />
@@ -9,6 +10,29 @@
             content="Ways to modify elements in HTML, CSS, and Javascript."
         />
     
+        
+        
+        
+        <rule name="Mobile Rewrite" patternSyntax="ECMAScript" stopProcessing="true">
+
+    <match url=".*" ignoreCase="true" negate="false" />
+
+    <conditions logicalGrouping="MatchAny" trackAllCaptures="false">
+
+        <add input="{HTTP_USER_AGENT}" pattern="midp|mobile|phone" />
+
+        <add input="{HTTP_X-Device-User-Agent}" pattern="midp|mobile|phone" />
+
+        <add input="{HTTP_X-OperaMini-Phone-UA}" pattern="midp|mobile|phone" />
+
+    </conditions>
+
+    <action type="Redirect" url="http://mysite.mobi" appendQueryString="false" redirectType="Found" />
+
+</rule>
+        
+        
+        
     <link rel="prefetch" href="https://image.flaticon.com/icons/png/512/1265/1265093.png" />
     <link rel="preload" as="image" href="https://image.flaticon.com/icons/png/512/1265/1265093.png">
     <link rel="preconnect" href="https://image.flaticon.com/icons/png/512/1265/1265093.png" />
