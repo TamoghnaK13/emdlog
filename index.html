@@ -2,6 +2,8 @@
 <html>
     <head>
       
+      <meta name="google-signin-client_id" content="68396659487-r92a27c1sibcj0fd7k74cgb984ong1js.apps.googleusercontent.com">
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
         <script async src="https://arc.io/widget.min.js#npvbzSfu"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
@@ -205,7 +207,44 @@ body {
 <div class="sidenav" id="s">
   <div align="center">
      <img src="https://image.flaticon.com/icons/png/512/1265/1265093.png" alt="LightningWebLogo" width="60" height="60" href="#home"></img>
-    
+
+      <meta name="google-signin-client_id" content="68396659487-r92a27c1sibcj0fd7k74cgb984ong1js.apps.googleusercontent.com">
+     <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+ <script>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ // document.write("Welcome," + profile.getName());
+    document.getElementById('hello').textContent = ("Welcome, " + profile.getName());
+}
+</script>
+  
+  <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+      
+      
+        <style>
+    .one {
+display: inline;
+}
+
+  </style>
+  
+ 
+  <div class"one"> 
+  <img display="inline" id="demo" width="30" height="30" src="https://vectorified.com/images/generic-user-icon-27.png"></img><p id="hello"></p>
+</div>
 
     </div>
     
