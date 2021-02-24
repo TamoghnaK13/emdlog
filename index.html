@@ -10,26 +10,7 @@
             content="Ways to modify elements in HTML, CSS, and Javascript."
         />
     
-        
-        
-        
-        <rule name="Mobile Rewrite" patternSyntax="ECMAScript" stopProcessing="true">
-
-    <match url=".*" ignoreCase="true" negate="false" />
-
-    <conditions logicalGrouping="MatchAny" trackAllCaptures="false">
-
-        <add input="{HTTP_USER_AGENT}" pattern="midp|mobile|phone" />
-
-        <add input="{HTTP_X-Device-User-Agent}" pattern="midp|mobile|phone" />
-
-        <add input="{HTTP_X-OperaMini-Phone-UA}" pattern="midp|mobile|phone" />
-
-    </conditions>
-
-    <action type="Redirect" url="http://mysite.mobi" appendQueryString="false" redirectType="Found" />
-
-</rule>
+   
         
         
         
@@ -153,7 +134,7 @@ body {
 /* Fixed sidenav, full height */
 .sidenav {
   height: 100%;
-  width: 210px;
+  width: 215px;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -222,6 +203,34 @@ body {
 <div class="sidenav" id="s">
   <div align="center">
      <img src="https://image.flaticon.com/icons/png/512/1265/1265093.png" alt="LightningWebLogo" width="60" height="60" href="#home">
+    
+      
+      <meta name="google-signin-client_id" content="68396659487-f58stn0fjvrdnf4f0dd4a6n21o8eje0j.apps.googleusercontent.com">
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-signin2" data-onsuccess="onSignIn"></div>
+ <script>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+ // document.write("Welcome," + profile.getName());
+    document.getElementById('hello').textContent = ("Welcome, " + profile.getName());
+}
+</script>
+  
+  <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
+      
+      
     </div>
     
   <a href="#home">Home</a>
