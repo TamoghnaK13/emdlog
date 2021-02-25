@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-      
+      <script>
+          const urlContainParams = window.location.search.length > 0;
+if (urlContainParams) window.location.href = 'example.org/rejected';
+        </script>
+        
 <meta name="google-signin-client_id" content="20575446019-4f7ofau8ir9jecfv8nsq44ueapil3coq.apps.googleusercontent.com">
      <script src="https://apis.google.com/js/platform.js" async defer></script>
   <div class="g-signin2" data-onsuccess="onSignIn"></div>
